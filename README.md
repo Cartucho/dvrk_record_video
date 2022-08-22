@@ -14,4 +14,4 @@ This on-the-fly conversion is ran in parallel by different processes running on 
 At the end of the recording, when the user presses `Ctrl + C`, the frames are compressed into a video.
 The quality of the video, lossy versus lossless, and many other settings can be adjusted to your preference.
 
-Please read carefully the [https://github.com/Cartucho/dvrk_record_video/blob/main/config.yaml](config.yaml) file and ajust the settings as desired.
+Please read carefully the [config.yaml](config.yaml) file and ajust the settings as desired.
