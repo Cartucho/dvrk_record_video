@@ -1,0 +1,23 @@
+output_dir: "output" # Both relative and absolute paths allowed. Absolute paths start with a '/' like '/home/User/Documents'
+show_visualization: True # If True, it will show the images that are being recorded
+save_frames_timestamp: True # If True, it will create a lookup table to store the frame timestamps
+on_the_fly_lossless_compression:
+  is_on: True # If True, then the frames are converted from `.bpm` to a more memory efficient format, without loosing quality!
+  format_opti: ".png" # The `.bpm` frames will be converted into this `format_opti`. I recommend using `.webp`, but if too slow use `.png` instead.
+  n_cores: 6 # Number of processes that will be running in parallel to compress frame data
+  counter_between_runs: 25 # Number of frames needed to trigger a new compression (run the processes again)
+vid:
+  # I am using ffmpeg. More info about specific encoders (`codec`): https://ffmpeg.org/ffmpeg-codecs.html#Video-Encoders
+  # More info about video coding formats here: https://en.wikipedia.org/wiki/Comparison_of_video_container_formats#Video_formats_supported
+  is_on: True # If True, the it will compress the recorded frames into a video at the end
+  discard_individual_frames: False # If True, it will discard individual frames, after compressing the final video
+  fps: 25.0 # The da Vinci endoscopes work at 25 Hz
+  format: ".mkv" # MKV supports the majoraty of the codecs, so I would not change it!
+  crf: 15 # Video quality. The smaller the better, but the bigger the video! The range depends in the code, but is usually from 0 to 50 +/-
+          # Set crf: 0 for technical lossless, but "crf: 15" is already "visually lossless". Give it try yourself!
+  #codec: "libvpx-vp9"  # VP9 - State-of-the-art compression from Google, I recommend using this, but it may be too slow for you
+  codec: "libx264rgb" # H264 - keeps original color information (in RGB)
+  #codec: "libx264"    # H264 - this alternative converts RGB to YUV, so it looses a bit of the color information
+rostopic:
+  cam1: "/patterson/left/decklink/camera/image_raw" # left stereo camera
+  cam2: "/patterson/right/decklink/camera/image_raw" # right stereo camera

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>dvrk_record_video</name>
+  <version>0.0.0</version>
+  <description>The dvrk_record_video package</description>
+  <maintainer email="jmc19@ic.ac.uk">Cartucho</maintainer>
+  <license>Apache2.0</license>
+  <url type="website">https://github.com/Cartucho/dvrk_record_video</url>
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>rospy</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_export_depend>rospy</build_export_depend>
+  <build_export_depend>std_msgs</build_export_depend>
+  <exec_depend>rospy</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+</package>
